@@ -1,0 +1,14 @@
+# solution files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# dx11_study's folders
+.vs
+
+# each tutorial's folders
+*/.vs
+*/Debug
+*/Release
+*/x64
