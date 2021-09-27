@@ -6,6 +6,7 @@
 
 # dx11_study's folders
 .vs
+BaseSource
 
 # each tutorial's folders
 */.vs
