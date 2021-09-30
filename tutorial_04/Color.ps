@@ -1,0 +1,26 @@
+/*
+ * Color.ps : 픽셀 셰이더는
+ * 화면에 그려지는 도형의 각 픽셀들을 실제로 그림
+ * 이 셰이더는 PixelInputType을 입력으로 사용하고
+ * 최종 픽셀의 색상이 저장된 float4 타입을 반환
+ * 작성일 : 09.30.21
+ * 마지막 업데이트 : 09.30.21
+ */
+
+/////////////////
+// Type defs
+/////////////////
+struct PixelInputType
+{
+	float4 position : SV_POSITION;
+	float4 color : COLOR;
+};
+
+
+/////////////////
+// Pixel shader
+/////////////////
+float4 ColorPixelShader(PixelInputType input) : SV_TARGET
+{
+	return input.color;
+};
