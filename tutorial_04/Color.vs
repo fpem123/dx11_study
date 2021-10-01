@@ -44,8 +44,8 @@ struct VertexInputType
 struct PixelInputType
 {
 	float4 position : SV_POSITION;
-	float color : COLOR;
-}
+	float4 color : COLOR;
+};
 
 
 /////////////////

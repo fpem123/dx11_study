@@ -291,7 +291,7 @@ void ColorShaderClass::OutputShaderErrorMessage(ID3D10Blob* errorMessage,
 	// 파일을 열고 안에 메시지를 기록함
 	fout.open("shader-error.txt");
 
-	// 에러 미시지 작성
+	// 에러 메시지 작성
 	for (i = 0; i < bufferSize; i++)
 	{
 		fout << compileErorrs[i];

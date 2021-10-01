@@ -51,17 +51,15 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 		return false;
 	}
 
-	return true;
-
 	// 카메라 객체 생성
-	m_Camera - new CameraClass;
+	m_Camera = new CameraClass;
 	if (!m_Camera)
 	{
 		return false;
 	}
 
-	// 카메라 객체 초기화
-	m_Camera->SetPosition(0.0f, 0.0f, -10.0f);
+	// 카메라 포지션 설정
+	m_Camera->SetPosition(0.0f, 0.0f, -5.0f);
 
 	// 모델 객체 생성
 	m_Model = new ModelClass;

@@ -5,13 +5,10 @@
  * FPS를 얻거나 GPU정보 같은 하드웨어로의 통신
  * 을 위해 필요한 모든 Direc3D 기능들을 담고 있음
  * 작성일 : 09.27.21
- * 마지막 업데이트 : 09.27.21
+ * 마지막 업데이트 : 10.02.21
  */
 #include "d3dclass.h"
 #include <fstream>
-#include <iostream>
-
-using namespace std;
 
 // 모든 멤버 포인터들을 null로 초기화
 D3DClass::D3DClass()
@@ -493,18 +490,6 @@ bool D3DClass::Initialize(int screenWidth,
 	//	screenNear, screenDepth);
 	m_orthoMatrix = XMMatrixOrthographicLH((float)screenWidth, (float)screenHeight,
 		screenNear, screenDepth);
-
-	// 그래픽카드 정보와 메모리 정보 작성
-	string filePath = "card&mem.txt";
-	ofstream writeFile(filePath.data());
-
-	if (writeFile.is_open())
-	{
-		writeFile << m_videoCardDescription;
-		writeFile << "\n";
-		writeFile << m_videoCardMemory;
-		writeFile.close();
-	}
 
 	return true;
 }

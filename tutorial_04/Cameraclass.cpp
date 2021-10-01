@@ -112,7 +112,6 @@ void CameraClass::Render()
 	// 회전된 카메라 위치를 뷰어 위치로 변환
 	lookAtVector = XMVectorAdd(positionVector, lookAtVector);
 
-
 	// 세계의 업데이트 된 벡터에서 뷰 행렬을 만듬
 	m_viewMatrix = XMMatrixLookAtLH(positionVector, lookAtVector, upVector);
 
