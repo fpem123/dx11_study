@@ -87,10 +87,10 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 	// 나중에 최종 버퍼를 생성할 때 사용
 
 	// 정점 배열의 길이를 설정
-	m_vertextCount = 3;
+	m_vertextCount = 6;
 
 	// 인덱스 배열의 길이를 설정
-	m_indexCount = 3;
+	m_indexCount = 6;
 
 	// 정점 배열을 생성
 	vertices = new VertextType[m_vertextCount];
@@ -106,29 +106,43 @@ bool ModelClass::InitializeBuffers(ID3D11Device* device)
 		return false;
 	}
 
-
 	// 정점, 인덱스 배열에 삼각형 점과 순서를 채움
 	// 주의) 이것들을 그리기 위해선 점들을 시계 방향으로 만들어야함
 	// 반시계로 만들면 DirextX에서 삼각형이 반대편을 바라본다 판단
 	// backface culling 에 의해 그려지지 않게 됨
 	// GPU에게 도형을 그리도록 할 때 이 순서를 기억하는 것이 중요
 
-
 	// 정점 배열에 값을 넣음
 	// 왼쪽 아래
 	vertices[0].position = XMFLOAT3(-1.0f, -1.0f, 0.0f);
 	vertices[0].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
 	// 상단 가운데
-	vertices[1].position = XMFLOAT3(0.0f, 1.0f, 0.0f);
+	vertices[1].position = XMFLOAT3(-1.0f, 1.0f, 0.0f);
 	vertices[1].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
 	// 오른쪽 아래
-	vertices[2].position = XMFLOAT3(1.0f, -1.0f, 0.0f);
+	vertices[2].position = XMFLOAT3(1.0f, 1.0f, 0.0f);
 	vertices[2].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
+
+	// 2번 째 삼각형
+	// 왼쪽 아래
+	vertices[3].position = XMFLOAT3(-1.0f, -1.0f, 0.0f);
+	vertices[3].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
+	// 상단 가운데
+	vertices[4].position = XMFLOAT3(1.0f, 1.0f, 0.0f);
+	vertices[4].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
+	// 오른쪽 아래
+	vertices[5].position = XMFLOAT3(1.0f, -1.0f, 0.0f);
+	vertices[5].color = XMFLOAT4(0.0f, 1.0f, 0.0f, 1.0f);
 
 	// 인덱스 배열에 값을 넣음
 	indices[0] = 0;		// 왼쪽 아래
 	indices[1] = 1;		// 상단 가운데
 	indices[2] = 2;		// 오른쪽 아래
+
+
+	indices[3] = 3;		// 왼쪽 아래
+	indices[4] = 4;		// 상단 가운데
+	indices[5] = 5;		// 오른쪽 아래
 
 
 	// 정점, 인덱스 버퍼를 만듬
@@ -240,7 +254,7 @@ void ModelClass::RenderBuffers(ID3D11DeviceContext* deviceContext)
 		DXGI_FORMAT_R32_UINT, 0);
 
 	// 정점 버퍼로 그릴 기본형을 설정, 삼각형
-	deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	//deviceContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
 	return;
 }
