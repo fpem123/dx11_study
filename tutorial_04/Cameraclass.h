@@ -30,8 +30,8 @@ public:
 	void GetviewMatrix(XMMATRIX&);
 
 private:
-	float m_positionX, m_positionY, m_positionZ;
-	float m_rotationX, m_rotationY, m_rotationZ;
+	XMFLOAT3 m_position;
+	XMFLOAT3 m_rotation;
 	XMMATRIX m_viewMatrix;
 };
 
